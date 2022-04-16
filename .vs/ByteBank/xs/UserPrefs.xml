@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{1EB3CD28-8E8F-465F-9E15-538C5118F7B7}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ByteBank.SistemaAgencia PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ByteBank.SistemaAgencia/Program.cs">
+    <Files>
+      <File FileName="ByteBank.SistemaAgencia/Program.cs" Line="32" Column="6" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ByteBank" expanded="True">
+            <Node name="ByteBank.Modelos" expanded="True" />
+            <Node name="ByteBank.SistemaAgencia" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

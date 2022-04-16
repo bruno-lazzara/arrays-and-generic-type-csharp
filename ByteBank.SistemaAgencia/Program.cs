@@ -13,197 +13,163 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Olá, mundo!");
-            Console.WriteLine(123);
-            Console.WriteLine(10.5);
-            Console.WriteLine(true);
+            Lista<int> idades = new Lista<int>();
 
-            //Toda classe do C# deriva do tipo object por padrão
-            object conta = new ContaCorrente(456, 687876);
-            Console.WriteLine(conta);
+            //A lista 'idades' foi criada como sendo do tipo int.
+            //Portanto, não poderá receber parâmetros de outros tipos.
+            //idades.Adicionar("texto qualquer"); - NÃO COMPILA
 
-            string contaToString = conta.ToString();
-            Console.WriteLine("Resultado: " + contaToString);
+            idades.Adicionar(5);
+            idades.AdicionarVarios(1, 5, 78);
 
-            // Desenvolvedor deriva da classe Funcionário, que por sua vez deriva do tipo object por padrão
-            object desenvolvedor = new Desenvolvedor("");
-            Console.WriteLine(desenvolvedor);
-
-
-
-
-
-            Cliente carlos_1 = new Cliente();
-            carlos_1.Nome = "Carlos";
-            carlos_1.CPF = "458.623.120-03";
-            carlos_1.Profissao = "Designer";
-            
-            Cliente carlos_2 = new Cliente();
-            carlos_2.Nome = "Carlos";
-            carlos_2.CPF = "458.623.120-03";
-            carlos_2.Profissao = "Designer";
-
-            // Comparando duas referências diferentes, então não são iguais.
-            if (carlos_1 == carlos_2)
+            for (int i = 0; i < idades.Tamanho; i++)
             {
-                Console.WriteLine("São iguais!");
-            }
-            else
-            {
-                Console.WriteLine("Não são iguais!");
+                int idadeAtual = idades[i];
             }
 
-            // O método Equals() foi implementado na classe object e serve para comparar dois objetos.
-            // Na classe Cliente, esse método foi sobrescrito para comparar os dois objetos que criamos!
-            if (carlos_1.Equals(carlos_2))
-            {
-                Console.WriteLine("São iguais!");
-            }
-            else
-            {
-                Console.WriteLine("Não são iguais!");
-            }
-
-            ContaCorrente conta2 = new ContaCorrente(1658, 64187);
-            // O método Equals() na classe Cliente tenta a conversão do objeto passado como parâmetro para o tipo Cliente.
-            // Quando isso não é possível, o método já retorna false, que é o que ocorre neste caso.
-            if (carlos_1.Equals(conta2))
-            {
-                Console.WriteLine("São iguais!");
-            }
-            else
-            {
-                Console.WriteLine("Não são iguais!");
-            }
 
 
 
             Console.ReadLine();
         }
 
-        static void TestaString()
+        static void TesteListaDeObject()
         {
-            // Expressões regulares
-            // string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
-            // string padrao = "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
-            // string padrao = "[0-9]{4,5}[-][0-9]{4}"; -> Pega os números de celular (9 números) e fixo (8 números)
-            // string padrao = "[0-9]{4,5}-{0,1}[0-9]{4}"; -> Pega números com e sem hífen
-            string padrao = "[0-9]{4,5}-?[0-9]{4}"; // Expressão mais otimizada
+            ListaDeObject listaDeIdades = new ListaDeObject();
 
-            string textoDeTeste = "Meu nome é Bruno, me ligue em 91234-5678";
+            listaDeIdades.Adicionar(10);
+            listaDeIdades.Adicionar(5);
+            listaDeIdades.Adicionar(4);
+            listaDeIdades.AdicionarVarios(16, 23, 60);
 
-            Match resultado = Regex.Match(textoDeTeste, padrao);
-
-            Console.WriteLine(resultado.Value);
-            Console.ReadLine();
-
+            for (int i = 0; i < listaDeIdades.Tamanho; i++)
+            {
+                int idade = (int)listaDeIdades[i];
+                Console.WriteLine($"Idade no índice {i}: {idade}");
+            }
 
 
 
-            // Testando métodos StartsWith, EndsWith, Contains
-            string urlTeste = "https://bytebank.com/cambio";
-            int indiceByteBank = urlTeste.IndexOf("https://bytebank.com");
 
-            Console.WriteLine(urlTeste.StartsWith("https://bytebank.com"));
-            Console.WriteLine(urlTeste.EndsWith("cambio/"));
 
-            Console.WriteLine(urlTeste.Contains("bytebank")); // True
-            Console.WriteLine(urlTeste.Contains("ByteBank")); // False
+            Console.WriteLine(SomarVarios(1, 2, 3, 4, 5, 6, 7, 8, 9));
+            Console.WriteLine(SomarVarios(1, 2, 3));
+
+
 
             Console.ReadLine();
+        }
+
+        static void TesteListaDeContaCorrente()
+        {
+            ListaDeContaCorrente lista = new ListaDeContaCorrente();
+
+            ContaCorrente contaDeBruno = new ContaCorrente(010101, 3654260);
+
+            ContaCorrente[] contas = new ContaCorrente[]
+            {
+                contaDeBruno,
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5546678)
+            };
+
+            lista.AdicionarVarios(contas);
+
+            //A palavra chave 'params'escrita na criação do método faz com que
+            //o AdicionarVarios primeiro crie uma array com os parâmetros inseridos
+            //abaixo, para depois chamar o método como ele foi chamado acima.
+            lista.AdicionarVarios(
+                contaDeBruno,
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5679787)
+                );
+
+            for (int i = 0; i < lista.Tamanho; i++)
+            {
+                ContaCorrente itemAtual = lista[i];
+                Console.WriteLine($"Item na posição {i} = Conta {itemAtual.Agencia} / {itemAtual.Numero}");
+            }
+
+            //lista.EscreverListaNaTela();
+
+            //lista.Remover(contaDeBruno);
+
+            //Console.WriteLine("Após remover o item");
+            //lista.EscreverListaNaTela();
 
 
 
-
-            //pagina?argumentos
-            // +---+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
-            // | p | a | g | i | n | a | ? | a | r | g | u  | m  | e  | n  | t  | o  | s  |
-            // | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
-            // +---+---+---+---+---+---+---+---+---+---+----+----+----+----+----+----+----+
-
-
-
-
-            // Testando e refinando o método ExtratorValorDeArgumentosURL.GetValor()
-            string urlParametros = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
-            ExtratorValorDeArgumentosURL extratorDeValores = new ExtratorValorDeArgumentosURL(urlParametros);
-
-            string valor = extratorDeValores.GetValor("moedaOrigem");
-            Console.WriteLine("Valor de moedaOrigem: " + valor);
-
-            string valor2 = extratorDeValores.GetValor("moedaDESTINO");
-            Console.WriteLine("Valor de moedaDestino: " + valor2);
-
-            Console.WriteLine(extratorDeValores.GetValor("VALOR"));
 
             Console.ReadLine();
+        }
+
+        static void TestaArrayDeContaCorrente()
+        {
+
+            ContaCorrente[] contas = new ContaCorrente[]
+            {
+                new ContaCorrente(874, 5679787),
+                new ContaCorrente(874, 5546678),
+                new ContaCorrente(874, 7781438)
+            };
 
 
+            for (int i = 0; i < contas.Length; i++)
+            {
+                Console.WriteLine($"Conta {i} {contas[i].Numero}");
+            }
 
-
-            // Testando ToUpper()
-            string mensagemOrigem = "PALAVRA";
-            string termoBusca = "ra";
-
-            termoBusca = termoBusca.ToUpper();
-            Console.WriteLine(termoBusca);
-            Console.WriteLine(mensagemOrigem.IndexOf(termoBusca));
-            Console.ReadLine();
-
-
-
-
-            // Testando o método remove
-            string testeRemocao = "primeiraParte&parteParaRemover";
-            int indiceEComercial = testeRemocao.IndexOf('&');
-            Console.WriteLine(testeRemocao.Remove(indiceEComercial));
-            Console.ReadLine();
-
-
-
-
-            // <nome>=<valor>
-            string palavra = "moedaOrigen=moedaDestino&moedaDestino=dolar";
-            string nomeArgumento = "moedaDestino=";
-
-            int indice = palavra.IndexOf(nomeArgumento);
-            Console.WriteLine(indice);
-
-            Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length);
-
-            Console.WriteLine(palavra);
-            Console.WriteLine(palavra.Substring(indice));
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length));
-            Console.ReadLine();
-
-
-
-
-            // Testando o IsNullOrEmpty
-            string textoVazio = "";
-            string textoNulo = null;
-            string textoQualquer = "asfdgasd";
-            Console.WriteLine(String.IsNullOrEmpty(textoVazio));
-            Console.WriteLine(String.IsNullOrEmpty(textoNulo));
-            Console.WriteLine(String.IsNullOrEmpty(textoQualquer));
-            Console.ReadLine();
-
-
-
-
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL("");
-
-            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
-
-            int indiceInterrogacao = url.IndexOf('?');
-
-            Console.WriteLine(indiceInterrogacao);
-
-            Console.WriteLine(url);
-            string argumentos = url.Substring(indiceInterrogacao + 1);
-            Console.WriteLine(argumentos);
 
             Console.ReadLine();
+        }
+
+        static void TestaArrayIndice()
+        {
+            //ARRAY de inteiros com 5 posições
+            int[] idades = null;
+            idades = new int[3];
+
+            idades[0] = 15;
+            idades[1] = 28;
+            idades[2] = 35;
+            //idades[3] = 50;
+            //idades[4] = 28;
+            //idades[5] = 60;
+
+            Console.WriteLine(idades.Length);
+
+            int acumulador = 0;
+            for (int i = 0; i < idades.Length; i++)
+            {
+                int idade = idades[i];
+
+                Console.WriteLine($"Acessando  o array idades no índice {i}");
+                Console.WriteLine($"Valor de idades[{i}] = {idade}");
+
+                acumulador += idade;
+            }
+
+            int media = acumulador / idades.Length;
+            Console.WriteLine($"Média de idades = {media}");
+
+
+
+
+            Console.ReadLine();
+        }
+
+        //Outro exemplo do uso de params
+        static int SomarVarios(params int[] numeros)
+        {
+            int acumulador = 0;
+            foreach (int numero in numeros)
+            {
+                acumulador += numero;
+            }
+            return acumulador;
         }
     }
 }

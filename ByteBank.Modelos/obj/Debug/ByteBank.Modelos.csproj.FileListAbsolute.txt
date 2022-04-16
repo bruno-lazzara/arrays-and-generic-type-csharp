@@ -5,3 +5,10 @@
 /Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/string-manipulation-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.csproj.CoreCompileInputs.cache
 /Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/string-manipulation-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.dll
 /Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/string-manipulation-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.pdb
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/bin/Debug/ByteBank.Modelos.xml
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/bin/Debug/ByteBank.Modelos.dll
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/bin/Debug/ByteBank.Modelos.pdb
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.csproj.AssemblyReference.cache
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.csproj.CoreCompileInputs.cache
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.dll
+/Users/brunolazzara/Library/CloudStorage/OneDrive-Pessoal/Meus Projetos/arrays-and-generic-type-csharp/ByteBank.Modelos/obj/Debug/ByteBank.Modelos.pdb
